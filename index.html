@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag generator | Tool for SEO</title>
+    <style>
+        input[type=text] {
+            display: block;
+            margin-top: 20px;
+            width: 320px;
+        }
+
+        input[type=checkbox] {
+            margin-top: 20px;
+        }
+
+        #generate {
+            display: block;
+            margin-top: 20px;
+            width: 320px;
+            background: black;
+            color: white;
+        }
+
+        textarea {
+            display: block;
+            margin-top: 20px;
+            resize: none;
+            height: 100px;
+            width: 320px;
+        }
+
+        .result {
+            float: right;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Meta Tag Generator</h1>
+    <input type="text" name="title" id="title" onkeyup="checkTitle()" placeholder="Title">
+    <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Description" onkeyup="checkDesc()"></textarea>
+    <input type="text" name="keyword" id="keyword" placeholder="Keywords">
+    <input type="text" name="author" id="author" placeholder="Author Name">
+    <input type="checkbox" name="viewport" id="viewport" value="viewport" onselect="data()"><label for="viewport">viewport</label>  <br>
+    <input type="checkbox" name="charset" id="charset" value="charset"><label for="charset">charset</label> <br>
+    <button id="generate" onclick="data()">Generate</button>
+    <div class="result">
+        <span id="showTitle"></span><br>
+        <span id="showDesc"></span>
+    </div>
+    <script>
+        //title endeavours
+        var title = document.getElementById("title");
+        var resTitle = document.getElementById("showTitle");
+        function checkTitle() {
+            var str = new String(title.value);
+            var titleLength = str.length;
+            if (titleLength > 52) {
+                var shortTitle = str.substring(0, 52);
+                resTitle.innerHTML = shortTitle + "...<span style='color:red'>" + titleLength + "</span>";
+            } else {
+                var shortTitle = str.substring(0, 52);
+                resTitle.innerHTML = shortTitle + "&emsp;<span style='color:green'>" + titleLength + "</span>";
+            }
+        }
+
+        //Description endeavours
+        var keyWord = document.getElementById("desc");
+        var resDesc = document.getElementById("showDesc");
+        function checkDesc() {
+            var str = new String(keyWord.value);
+            var descLength = str.length;
+            if (descLength > 160) {
+                var shortDesc = str.substring(0, 160);
+                resDesc.innerHTML = shortDesc + "...<span style='color:red'>" + descLength + "</span>";
+            } else {
+                var shortDesc = str.substring(0, 160);
+                resDesc.innerHTML = shortDesc + "&emsp;<span style='color:green'>" + descLength + "</span>";
+            }
+        }
+
+        //playing with data
+        function data() {
+            var titl = document.getElementById("title").value;
+            var desc = document.getElementById("desc").value;
+            var keyw = document.getElementById("keyword").value;
+            var auth = document.getElementById("author").value;
+            var viewp = document.getElementById("viewport");
+            var chars = document.getElementById("charset");
+            var viewport = "";
+            if (viewp.checked == true) { viewport = "<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n" };
+            var charset = "";
+            if (chars.checked == true) { charset = "<meta charset='UTF - 8'>\n" };
+            console.log(charset + "" + viewport + "<title>" + titl + "</title>\n<meta name = 'Description' content='" + desc + "' /> \n<meta name='keywords' content='" + keyw + "'/>\n<meta name='author' content='" + auth + "'/>");
+        }
+    </script>
+</body>
+
+</html>
