@@ -2,252 +2,182 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Tag generator | Tool for SEO</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tag Generator | SEO Tool | Queryla</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style media="screen">
+    #showLink {
+      color: black;
+      font-family: arial, sans-serif;
+      font-size: 14px;
+    }
+
+    #showTitle {
+      color: #1a0dab;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      font-size: 20px;
+      display: inline-block;
+      width: 599px;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+    }
+
+    #showTitle:hover {
+      text-decoration: underline;
+    }
+
+    #showDesc {
+      color: black;
+      font-family: arial, sans-serif;
+      font-size: 14px;
+      word-wrap: break-word;
+    }
+
+    .result {
+      border: 1px solid gainsboro;
+      width: 610px;
+      margin: auto;
+      padding:2px;
+    }
+
+    #sandbox {
+      resize: none;
+      overflow: hidden;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+      display: none;
+    }
+
+    #copy {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-    <style>
-        #link,
-        #title,
-        #keyword,
-        #author {
-            margin-top: 20px;
-            width: 320px;
-        }
-
-        #generate {
-            display: block;
-            margin-top: 20px;
-            width: 320px;
-            background: black;
-            color: white;
-            cursor: pointer;
-        }
-
-        #desc {
-            margin-top: 20px;
-            resize: none;
-            height: 70px;
-            width: 320px;
-        }
-
-        #showTitle {
-            color: #1a0dab;
-            font-family: Arial, Helvetica, sans-serif;
-            cursor: pointer;
-            font-size: 20px;
-            display: inline-block;
-            width: 599px;
-            white-space: nowrap;
-            overflow: hidden !important;
-            text-overflow: ellipsis;
-        }
-
-        #showTitle:hover {
-            text-decoration: underline;
-        }
-
-        #showDesc {
-            color: black;
-            font-family: arial, sans-serif;
-            font-size: 14px;
-            word-wrap: break-word;
-        }
-
-        #showLink {
-            color: black;
-            font-family: arial, sans-serif;
-            font-size: 14px;
-        }
-
-        .result {
-            border: 1px solid gainsboro;
-            width: 610px;
-            margin: auto;
-        }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        #sandbox {
-            width: 610px;
-            height: 120px;
-            resize: none;
-            overflow: hidden;
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            white-space: -moz-pre-wrap;
-            white-space: -pre-wrap;
-            white-space: -o-pre-wrap;
-            word-wrap: break-word;
-            display: none;
-        }
-
-        #copy {
-            display: none;
-            cursor: pointer;
-            background: green;
-            color: white;
-            border: 1px solid green;
-            width: 120px;
-            height: 22px;
-        }
-
-        #copy:hover {
-            color: green;
-            background: white;
-        }
-    </style>
-    <div class="result">
-        <span id="showLink">https://www.queryla.com&#9662;</span>
-        <span id="showTitle">Meta Tag Generator | Digital Marketing Tool | Queryla Digitals</span><br>
-        <span id="showDesc">Meta length checker, snippet tool... we have it all! An awesome description will help
+  <div class="container">
+    <div class="row mb-4 justify-content-center">
+      <div class="col-md-8 col-sm-12">
+        <div class="result">
+          <span id="showLink">https://www.queryla.com&#9662;</span><br>
+          <span id="showTitle">Meta Tag Generator | Digital Marketing Tool | Queryla Digitals</span><br>
+          <span id="showDesc">Meta length checker, snippet tool... we have it all! An awesome description will help
             boost
             your CTR and make you stand out in the search results! Try it today!</span>
+        </div>
+      </div>
     </div>
-    <input type="text" id="link" placeholder="Link*" onkeyup="checkLink()" required><br>
-    <input type="text" name="title" id="title" onkeyup="checkTitle()" placeholder="Title*" required><span
-        id="titleCount"></span><br>
-    <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Description*" onkeyup="checkDesc()"
-        required></textarea><span id="descCount"></span><br>
-    <input type="text" name="keyword" id="keyword" placeholder="Keywords*" required><br>
-    <input type="text" name="author" id="author" placeholder="Author Name*" required><br><br>
-    <label for="viewport" class="switch"><input type="checkbox" name="viewport" id="viewport" value="viewport"
-            onselect="data()"><span class="slider round"></span></label>&nbsp;viewport<br><br>
-    <label for="charset" class="switch"><input type="checkbox" name="charset" id="charset" value="charset"><span
-            class="slider round"></span></label>&nbsp;charset <br>
-    <button id="generate" type="submit" onclick="genData()">Generate</button><br>
-    <textarea id="sandbox"></textarea>
-    <button id="copy" onclick="copyToClipBoard()">Copy to clipboard</button>
-    <script>
-        //link endeavours
-        var link = document.getElementById("link");
-        var resLink = document.getElementById("showLink");
-        function checkLink() {
-            resLink.innerHTML = link.value + "&#9662;";
-        }
-        //title endeavours
-        var title = document.getElementById("title");
-        var resTitle = document.getElementById("showTitle");
-        var titleCount = document.getElementById("titleCount");
-        function checkTitle() {
-            var str = new String(title.value);
-            var titleLength = str.length;
-            if (titleLength > 40 && titleLength <= 63) {
-                var shortTitle = str.substring(0, titleLength);
-                resTitle.innerHTML = shortTitle;
-                titleCount.style.color = "green";
-                titleCount.innerHTML = titleLength;
-            } else {
-                var shortTitle = str.substring(0, titleLength);
-                resTitle.innerHTML = shortTitle;
-                titleCount.style.color = "red";
-                titleCount.innerHTML = titleLength;
-            }
-        }
+    <div class="row justify-content-center">
+      <div class="col-md-5 text-center">
+        <input type="text" id="link" placeholder="Link*" onkeyup="checkLink()" class="form-control" required><br />
+        <input type="text" name="title" id="title" onkeyup="checkTitle()" placeholder="Title*" class="form-control" required><span id="titleCount"></span><br>
+        <textarea name="desc" id="desc" cols="30" rows="4" placeholder="Description*" class="form-control" onkeyup="checkDesc()" required></textarea><span id="descCount"></span><br>
+        <input type="text" name="keyword" id="keyword" placeholder="Keywords*" class="form-control" required><br>
+        <input type="text" name="author" id="author" placeholder="Author Name*" class="form-control" required><br>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" name="viewport" id="viewport" class="custom-control-input" value="viewport" onselect="data()">
+          <label class="custom-control-label" for="viewport">Viewport</label>
+        </div><br>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" name="charset" id="charset" value="charset">
+          <label class="custom-control-label" for="charset">Charset</label>
+        </div><br>
+        <button id="generate" type="submit" onclick="genData()" class="btn btn-primary">Generate</button><br><br>
+        <textarea id="sandbox" class="form-control" cols="30" rows="7"></textarea><br>
+        <button id="copy" onclick="copyToClipBoard()" class="btn btn-primary">Copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    //link endeavours
+    var link = document.getElementById("link");
+    var resLink = document.getElementById("showLink");
 
-        //Description endeavours
-        var keyWord = document.getElementById("desc");
-        var resDesc = document.getElementById("showDesc");
-        function checkDesc() {
-            var str = new String(keyWord.value);
-            var descLength = str.length;
-            if (descLength > 160) {
-                var shortDesc = str.substring(0, 160);
-                resDesc.innerHTML = shortDesc + "...";
-                descCount.style.color = "red";
-                descCount.innerHTML = descLength;
-            } else {
-                var shortDesc = str.substring(0, 160);
-                resDesc.innerHTML = shortDesc;
-                descCount.style.color = "green";
-                descCount.innerHTML = descLength;
-            }
-        }
+    function checkLink() {
+      resLink.innerHTML = link.value + "&#9662;";
+    }
+    //title endeavours
+    var title = document.getElementById("title");
+    var resTitle = document.getElementById("showTitle");
+    var titleCount = document.getElementById("titleCount");
 
-        //playing with data
-        function genData() {
-            var titl = document.getElementById("title").value;
-            var desc = document.getElementById("desc").value;
-            var keyw = document.getElementById("keyword").value;
-            var auth = document.getElementById("author").value;
-            var viewp = document.getElementById("viewport");
-            var chars = document.getElementById("charset");
-            var viewport = "";
-            if (viewp.checked == true) { viewport = '&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n' };
-            var charset = "";
-            if (chars.checked == true) { charset = '&lt;meta charset="UTF-8"&gt;\n' };
-            var tags = charset + '' + viewport + '&lt;title&gt;' + titl + '&lt;/title&gt;\n&lt;meta name="description" content="' + desc + '"/&gt;\n&lt;meta name="keywords" content="' + keyw + '"/&gt;\n&lt;meta name="author" content="' + auth + '"/&gt;';
-            document.getElementById("sandbox").innerHTML = tags;
-            document.getElementById("sandbox").style.display = "block";
-            document.getElementById("copy").style.display = "block";
-        }
-        function copyToClipBoard() {
-            var txt = document.getElementById("sandbox");
-            txt.select();
-            txt.setSelectionRange(0, -1);
-            document.execCommand("copy");
-        }
-    </script>
+    function checkTitle() {
+      var str = new String(title.value);
+      var titleLength = str.length;
+      if (titleLength > 40 && titleLength <= 63) {
+        var shortTitle = str.substring(0, titleLength);
+        resTitle.innerHTML = shortTitle;
+        titleCount.style.color = "green";
+        titleCount.innerHTML = titleLength;
+      } else {
+        var shortTitle = str.substring(0, titleLength);
+        resTitle.innerHTML = shortTitle;
+        titleCount.style.color = "red";
+        titleCount.innerHTML = titleLength;
+      }
+    }
+
+    //Description endeavours
+    var keyWord = document.getElementById("desc");
+    var resDesc = document.getElementById("showDesc");
+
+    function checkDesc() {
+      var str = new String(keyWord.value);
+      var descLength = str.length;
+      if (descLength > 160) {
+        var shortDesc = str.substring(0, 160);
+        resDesc.innerHTML = shortDesc + "...";
+        descCount.style.color = "red";
+        descCount.innerHTML = descLength;
+      } else {
+        var shortDesc = str.substring(0, 160);
+        resDesc.innerHTML = shortDesc;
+        descCount.style.color = "green";
+        descCount.innerHTML = descLength;
+      }
+    }
+
+    //playing with data
+    function genData() {
+      var titl = document.getElementById("title").value;
+      var desc = document.getElementById("desc").value;
+      var keyw = document.getElementById("keyword").value;
+      var auth = document.getElementById("author").value;
+      var viewp = document.getElementById("viewport");
+      var chars = document.getElementById("charset");
+      var viewport = "";
+      if (viewp.checked == true) {
+        viewport = '&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n'
+      };
+      var charset = "";
+      if (chars.checked == true) {
+        charset = '&lt;meta charset="UTF-8"&gt;\n'
+      };
+      var tags = charset + '' + viewport + '&lt;title&gt;' + titl + '&lt;/title&gt;\n&lt;meta name="description" content="' + desc + '"/&gt;\n&lt;meta name="keywords" content="' + keyw + '"/&gt;\n&lt;meta name="author" content="' + auth + '"/&gt;';
+      document.getElementById("sandbox").innerHTML = tags;
+      document.getElementById("sandbox").style.display = "block";
+      document.getElementById("copy").style.display = "block";
+    }
+
+    function copyToClipBoard() {
+      var txt = document.getElementById("sandbox");
+      txt.select();
+      txt.setSelectionRange(0, -1);
+      document.execCommand("copy");
+    }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
